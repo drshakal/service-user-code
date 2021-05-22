@@ -21,12 +21,12 @@
     </bean>
     <camelContext id="camel" typeConverterStatisticsEnabled="true" xmlns="http://camel.apache.org/schema/spring">
         <restConfiguration bindingMode="json" component="jetty"
-            host="0.0.0.0" port="8080"/>
+            host="0.0.0.0" port="8443"/>
         <rest id="rest" path="/api/usercode">
-            <get id="rest-id"
+            <post id="post-id"
                 outType="org.mycompany.models.UserCodeType" uri="/id/{id}">
                 <to uri="direct:getUsercode"/>
-            </get>
+            </post>
         </rest>
         <route id="getUsercode">
             <from id="_form1" uri="direct:getUsercode"/>
